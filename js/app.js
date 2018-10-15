@@ -1,8 +1,10 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-
+    this.x=-100;
+    this.y=y;
+    this.speed=speed;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -11,8 +13,24 @@ var Enemy = function() {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
+    this.x += this.speed*dt; // You should multiply any movement by the dt parameter
+    if (this.x>500){
+      let ran =Math.floor(Math.random() * 4) + 1;
+    switch  (ran){
+      case 1:
+      this.y= 140;
+      break;
+      case 2:
+      this.y= 220;
+      break;
+      case 3:
+      this.y= 60;
+      break;
+      case 4:
+      setTimeout(function(){ran = Math.floor(Math.random() * 3) + 1;}, 2000);
+      break;
+    }
+  }// which will ensure the game runs at the same speed for
     // all computers.
 };
 
@@ -24,10 +42,32 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-
-
+var Player = function() {
+    // Variables applied to each of our instances go here,
+    // we've provided one for you to get started
+    this.x=200;
+    this.y=300;
+    // The image/sprite for our enemies, this uses
+    // a helper we've provided to easily load images
+    this.sprite = 'images/char-boy.png';
+};
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+// Update the enemy's position, required method for game
+// Parameter: dt, a time delta between ticks
+Player.prototype.update = function(dt) {
+  //  this.speed*= dt; // You should multiply any movement by the dt parameter
+    // which will ensure the game runs at the same speed for
+    // all computers.
+};
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
+const enemy1 = new Enemy(60, 200);
+const enemy2 = new Enemy(140, 300);
+const enemy3 = new Enemy(220, 100);
+const player = new Player();
+var allEnemies = [enemy1,enemy2,enemy3];
 // Place the player object in a variable called player
 
 
