@@ -15,20 +15,31 @@ var Enemy = function(y,speed) {
 Enemy.prototype.update = function(dt) {
     this.x += this.speed*dt; // You should multiply any movement by the dt parameter
     if (this.x>500){
-      let ran =Math.floor(Math.random() * 4) + 1;
-    switch  (ran){
+    switch  (Math.floor(Math.random() * 5) + 1){
       case 1:
+      this.x= -100;
       this.y= 140;
       break;
       case 2:
+      this.x= -100;
       this.y= 220;
       break;
       case 3:
+      this.x= -100;
       this.y= 60;
       break;
       case 4:
-      setTimeout(function(){ran = Math.floor(Math.random() * 3) + 1;}, 2000);
-      break;
+      this.x = -1000;
+      this.y= 220;
+      this.speed = Math.floor(Math.random() * (250 - 200 + 1) ) + 200;
+      case 5:
+      this.x = -500;
+      this.y= 140;
+      this.speed = Math.floor(Math.random() * (150 - 100 + 1) ) + 100;
+      case 6:
+      this.x = -1000;
+      this.y= 60;
+      this.speed = 300;
     }
   }// which will ensure the game runs at the same speed for
     // all computers.
