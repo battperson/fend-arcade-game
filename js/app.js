@@ -61,10 +61,10 @@ var Player = function() {
     this.handleInput = function(e){
   switch (e) {
     case 'up':
-      this.y+=-90;
+      this.y+=-83;
       break;
     case 'down':
-      this.y+=90;
+      this.y+=83;
       break;
     case 'left':
       this.x+=-100;
