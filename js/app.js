@@ -9,36 +9,42 @@ var Enemy = function(y,speed) {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
 };
-
+Enemy.prototype.lose = function() {
+  if(player.x === enemy1.x || player.x === enemy2.x ||player.x === enemy3.x)
+    {
+      alert('i did it');
+    }
+}
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    this.x += this.speed*dt; // You should multiply any movement by the dt parameter
+    this.x += this.speed*dt;
+    lose(); // You should multiply any movement by the dt parameter
     if (this.x>500){
     switch  (Math.floor(Math.random() * 5) + 1){
       case 1:
       this.x= -100;
-      this.y= 140;
+      this.y= 134;
       break;
       case 2:
       this.x= -100;
-      this.y= 220;
+      this.y= 217;
       break;
       case 3:
       this.x= -100;
-      this.y= 60;
+      this.y= 51;
       break;
       case 4:
       this.x = -1000;
-      this.y= 220;
+      this.y= 217;
       this.speed = Math.floor(Math.random() * (250 - 200 + 1) ) + 200;
       case 5:
       this.x = -500;
-      this.y= 140;
-      this.speed = Math.floor(Math.random() * (150 - 100 + 1) ) + 100;
+      this.y= 134;
+      this.speed = Math.floor(Math.random() * (120 - 100 + 1) ) + 100;
       case 6:
-      this.x = -1000;
-      this.y= 60;
+      this.x = -500;
+      this.y= 51;
       this.speed = 300;
     }
   }// which will ensure the game runs at the same speed for
@@ -88,15 +94,13 @@ Player.prototype.handleInput = function(e) {
       if(this.x<400){
         this.x+=100;}
         break;
-    default:
-
   }
     }
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-const enemy1 = new Enemy(60, 200);
-const enemy2 = new Enemy(140, 300);
-const enemy3 = new Enemy(220, 100);
+const enemy1 = new Enemy(51, 200);
+const enemy2 = new Enemy(134, 300);
+const enemy3 = new Enemy(217, 100);
 const player = new Player();
 var allEnemies = [enemy1,enemy2,enemy3];
 // Place the player object in a variable called player
