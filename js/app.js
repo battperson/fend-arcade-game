@@ -58,29 +58,40 @@ var Player = function() {
     // we've provided one for you to get started
     this.x=200;
     this.y=300;
-    this.handleInput = function(e){
-  switch (e) {
-    case 'up':
-      this.y+=-83;
-      break;
-    case 'down':
-      this.y+=83;
-      break;
-    case 'left':
-      this.x+=-100;
-      break;
-      case 'right':
-        this.x+=100;
-        break;
-    default:
-
-  }
-}
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/char-boy.png';
 };
 
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+// Update the enemy's position, required method for game
+// Parameter: dt, a time delta between ticks
+Player.prototype.update = function(dt) {
+  }
+Player.prototype.handleInput = function(e) {
+  switch (e) {
+    case 'up':
+      if(this.y>-20){
+        this.y-=83;}
+      break;
+    case 'down':
+    if(this.y<380){
+      this.y+=83;}
+      break;
+    case 'left':
+    if(this.x>0){
+      this.x+=-100;}
+      break;
+      case 'right':
+      if(this.x<400){
+        this.x+=100;}
+        break;
+    default:
+
+  }
+    }
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 const enemy1 = new Enemy(60, 200);
@@ -104,12 +115,6 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
-Player.prototype.update = function(dt) {
-  } // You should multiply any movement by the dt parameter
+ // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
