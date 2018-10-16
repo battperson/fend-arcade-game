@@ -90,6 +90,14 @@ Player.prototype.handleInput = function(e) {
     case 'up':
       if(this.y>-20){
         this.y-=83;}
+      if (this.y<51){
+        setTimeout(
+            function()
+              {
+                alert('She is in an other castle Mario!');
+            }
+            ,50);
+      }
       break;
     case 'down':
     if(this.y<380){
