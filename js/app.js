@@ -15,6 +15,8 @@ var Enemy = function(y,speed) {
 Enemy.prototype.update = function(dt) {
     this.x += this.speed*dt; // You should multiply any movement by the dt parameter
     if (this.x>500){
+      //switch statement used to randomly Assign enemies to Y axis.
+      // random number between 1-5 reassign enemy speeds and y coordinate
     switch  (Math.floor(Math.random() * 5) + 1){
       case 1:
       this.x= -100;
@@ -41,11 +43,11 @@ Enemy.prototype.update = function(dt) {
       this.y= 51;
       this.speed = 300;
     }
-  }// which will ensure the game runs at the same speed for
+  }// compares player & Enemy coordinates,
+  //if match restart player and enemypositions
   else {
   if (this.x - player.x> -50 && this.x - player.x<0  && player.y==this.y) {alert("YOU HAVE BROUGHT DISHONOR TO US ALL. DON'T DO IT AGAIN"); player.x=200; player.y=300; enemy1.x=-400;enemy2.x=-100;enemy3.x=-600;}
   }
-   // all computers.
 };
 
 // Draw the enemy on the screen, required method for game
