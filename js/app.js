@@ -9,17 +9,11 @@ var Enemy = function(y,speed) {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
 };
-Enemy.prototype.lose = function() {
-  if(player.x === enemy1.x || player.x === enemy2.x ||player.x === enemy3.x)
-    {
-      alert('i did it');
-    }
-}
+
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    this.x += this.speed*dt;
-    lose(); // You should multiply any movement by the dt parameter
+    this.x += this.speed*dt; // You should multiply any movement by the dt parameter
     if (this.x>500){
     switch  (Math.floor(Math.random() * 5) + 1){
       case 1:
@@ -48,7 +42,10 @@ Enemy.prototype.update = function(dt) {
       this.speed = 300;
     }
   }// which will ensure the game runs at the same speed for
-    // all computers.
+  else {
+  if (this.x - player.x> -50 && player.y==this.y) {alert("it's a start");}
+  }
+   // all computers.
 };
 
 // Draw the enemy on the screen, required method for game
@@ -64,6 +61,7 @@ var Player = function() {
     // we've provided one for you to get started
     this.x=200;
     this.y=300;
+    this.speed=300;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/char-boy.png';
@@ -75,6 +73,7 @@ Player.prototype.render = function() {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Player.prototype.update = function(dt) {
+  this.speed+=this.speed*dt
   }
 Player.prototype.handleInput = function(e) {
   switch (e) {
