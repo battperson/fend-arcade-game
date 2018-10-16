@@ -46,7 +46,7 @@ Enemy.prototype.update = function(dt) {
   }// compares player & Enemy coordinates,
   //if match restart player and enemypositions
   else {
-  if (this.x - player.x> -50 && this.x - player.x<50  && player.y==this.y) {alert("YOU HAVE BROUGHT DISHONOR TO US ALL. DON'T DO IT AGAIN"); player.x=200; player.y=300; enemy1.x=-400;enemy2.x=-100;enemy3.x=-600;}
+  if (this.x - player.x> -50 && this.x - player.x<50  && player.y==this.y) {setTimeout(function (){ player.x=200; player.y=300; enemy1.x=-400; enemy2.x=-100; enemy3.x=-600; alert("YOU HAVE BROUGHT DISHONOR TO US ALL. DON'T DO IT AGAIN");},10); }
   }
 };
 
