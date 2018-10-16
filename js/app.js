@@ -43,7 +43,7 @@ Enemy.prototype.update = function(dt) {
     }
   }// which will ensure the game runs at the same speed for
   else {
-  if (this.x - player.x> -50 && player.y==this.y) {alert("it's a start");}
+  if (this.x - player.x> -50 && this.x - player.x<0  && player.y==this.y) {alert("it's a start");}
   }
    // all computers.
 };
