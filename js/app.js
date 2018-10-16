@@ -46,7 +46,7 @@ Enemy.prototype.update = function(dt) {
   }// compares player & Enemy coordinates,
   //if match restart player and enemypositions
   else {
-  if (this.x - player.x> -50 && this.x - player.x<0  && player.y==this.y) {alert("YOU HAVE BROUGHT DISHONOR TO US ALL. DON'T DO IT AGAIN"); player.x=200; player.y=300; enemy1.x=-400;enemy2.x=-100;enemy3.x=-600;}
+  if (this.x - player.x> -50 && this.x - player.x<50  && player.y==this.y) {alert("YOU HAVE BROUGHT DISHONOR TO US ALL. DON'T DO IT AGAIN"); player.x=200; player.y=300; enemy1.x=-400;enemy2.x=-100;enemy3.x=-600;}
   }
 };
 
@@ -63,7 +63,6 @@ var Player = function() {
     // we've provided one for you to get started
     this.x=200;
     this.y=300;
-    this.speed=300;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/char-boy.png';
@@ -75,7 +74,6 @@ Player.prototype.render = function() {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Player.prototype.update = function(dt) {
-  this.speed+=this.speed*dt
   }
 Player.prototype.handleInput = function(e) {
   switch (e) {
