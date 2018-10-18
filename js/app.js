@@ -34,14 +34,17 @@ Enemy.prototype.update = function(dt) {
                 this.x = -1000;
                 this.y = 217;
                 this.speed = Math.floor(Math.random() * (250 - 200 + 1)) + 200;
+                break;
             case 5:
                 this.x = -500;
                 this.y = 134;
                 this.speed = Math.floor(Math.random() * (120 - 100 + 1)) + 100;
+                break;
             case 6:
                 this.x = -500;
                 this.y = 51;
                 this.speed = 300;
+                break;
         }
     } // compares player & Enemy coordinates,
     //if match restart player and enemypositions
