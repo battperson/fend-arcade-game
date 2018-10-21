@@ -9,6 +9,6 @@ Classic Arcade Game
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. Open index file in your browser
-#How to play
+## How to play
 
  Move Player from grass blocks to water blocks without being run over by enemy bugs. Touching enemy bugs will result in game restarting.
